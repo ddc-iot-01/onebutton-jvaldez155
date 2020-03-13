@@ -12,7 +12,7 @@ OneButton button1 (23,false);
 
 int buttonState = LOW;
 int flash = LOW; 
-int ledGreen = 4;
+int ledGreen = 14;
 int ledYellow = 5;
 int blink1;
 
@@ -22,7 +22,7 @@ int blink1;
 
 void setup() {
   
-  pinMode (ledGreen,INPUT);
+  pinMode (ledGreen,OUTPUT);
   pinMode (ledYellow,INPUT);
 
 // Setup Serial Monitor
@@ -44,6 +44,8 @@ void setup() {
 } 
 
 void loop() {
+   // keep watching the push buttons:
+  button1.tick();
 
    if(buttonState == LOW) {
     //Serial.println(buttonState);Serial.println(flash);
@@ -73,12 +75,10 @@ void loop() {
        delay (50);
        digitalWrite(ledGreen,LOW);
        delay (50);
-       button1.tick();
+      
       }
-     
-  } 
-  // keep watching the push buttons:
-  button1.tick();
+     } 
+ 
 } // loop
 
 
